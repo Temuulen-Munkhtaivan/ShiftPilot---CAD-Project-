@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 function App() {
   const [employees, setEmployees] = useState([
@@ -53,7 +53,6 @@ function App() {
           ))}
         </ul>
       </section>
-      <p className="note">For now, employees are only saved until you refresh the page.</p>
     </main>
   );
 }
