@@ -18,6 +18,10 @@ function App() {
     setRole('');
   }
 
+  function deleteEmployee(id) {
+    setEmployees(employees.filter((employee) => employee.id !== id));
+  }
+
   return (
     <main className="container">
       <header>
@@ -49,6 +53,7 @@ function App() {
             <li key={employee.id}>
               <span>{employee.name}</span>
               <small>{employee.role}</small>
+              <button onClick={() => deleteEmployee(employee.id)}>Delete</button>
             </li>
           ))}
         </ul>
