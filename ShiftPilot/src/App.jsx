@@ -18,6 +18,28 @@ function App() {
     setRole('');
   }
 
+  function deleteEmployee(id) {
+    setEmployees(employees.filter((employee) => employee.id !== id));
+  }
+
+  function editEmployee(id) {
+    const employee = employees.find((emp) => emp.id === id);
+
+    const newName = prompt('Enter new name:', employee.name);
+    if(newName === null || !newName.trim()) return;
+
+    const newRole = prompt('Enter new role:', employee.role);
+    if(newRole === null || !newRole.trim()) return;
+
+    setEmployees(
+      employees.map((emp) =>
+        emp.id === id
+          ? { ...emp, name: newName.trim(), role: newRole.trim() }
+          : emp
+      )
+    );
+  }
+
   return (
     <main className="container">
       <header>
@@ -49,6 +71,10 @@ function App() {
             <li key={employee.id}>
               <span>{employee.name}</span>
               <small>{employee.role}</small>
+              <div className="actions">
+                <button onClick={() => editEmployee(employee.id)}>Edit</button>
+                <button onClick={() => deleteEmployee(employee.id)}>Delete</button>
+              </div>
             </li>
           ))}
         </ul>

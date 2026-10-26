@@ -26,3 +26,4 @@ li { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; 
 li:last-child { border-bottom: 0; }
 small { color: #687b8e; }
 .note { font-size: 13px; text-align: center; }
+.actions { display: flex; gap: 8px; }
